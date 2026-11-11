@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Keep It Livable: Environmental Protection</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#eef3f0; --surface:#ffffff; --ink:#0f2a22; --muted:#4a6358; --line:#c9d8d0;
+  --kelp:#1d6b57; --tide:#2a6f94; --sun:#e0a526; --hero-bg:#0f2a22; --hero-ink:#eef3f0;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0b1a15; --surface:#13271f; --ink:#e6efe9; --muted:#9db3a8; --line:#25403492;
+    --kelp:#4fc2a1; --tide:#6ab6df; --sun:#f0bc45; --hero-bg:#07120e; --hero-ink:#e6efe9; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0b1a15; --surface:#13271f; --ink:#e6efe9; --muted:#9db3a8; --line:#254034;
+  --kelp:#4fc2a1; --tide:#6ab6df; --sun:#f0bc45; --hero-bg:#07120e; --hero-ink:#e6efe9; color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(circle at 8% 12%,rgba(255,200,87,.3),transparent 38%),radial-gradient(circle at 92% 30%,rgba(66,170,210,.28),transparent 42%),radial-gradient(circle at 15% 78%,rgba(86,196,140,.32),transparent 45%),radial-gradient(circle at 85% 90%,rgba(242,107,138,.18),transparent 40%),var(--bg);color:var(--ink);font:400 1.125rem/1.7 "Source Serif 4",Georgia,serif}
+h1,h2,h3{font-family:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;line-height:1.1;margin:0}
+a{color:var(--kelp)}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+.wrap{max-width:68rem;margin:0 auto;padding:0 1.25rem}
+header.top{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 0;flex-wrap:wrap}
+.brand{font:800 1.1rem "Bricolage Grotesque",sans-serif;color:inherit;text-decoration:none}
+nav a{margin-left:1.25rem;color:inherit;text-decoration:none;font:500 .95rem "Bricolage Grotesque",sans-serif}
+nav a:hover{text-decoration:underline}
+.hero{position:relative;background:linear-gradient(180deg,#0e3b4f 0%,#17605a 65%,#b9892a 100%);color:var(--hero-ink);padding:1rem 0 0;overflow:hidden}
+.hero .wrap{padding-bottom:0}
+.hero h1{font-weight:800;font-size:clamp(2.6rem,8vw,6rem);letter-spacing:-.03em;max-width:15ch;padding:3rem 0 1.25rem}
+.hero p.lead{max-width:36rem;font-size:1.25rem;color:color-mix(in srgb,var(--hero-ink) 82%,transparent);margin:0 0 2rem}
+.btn{display:inline-block;background:var(--sun);color:#1a1405;font:700 1rem "Bricolage Grotesque",sans-serif;padding:.8rem 1.4rem;border-radius:.4rem;text-decoration:none}
+.btn:hover{filter:brightness(1.08)}
+.tide{display:block;width:100%;height:auto;margin-top:3rem}
+.tide .w1{fill:var(--tide);opacity:.55}
+.tide .w2{fill:var(--kelp);opacity:.9}
+.tide .w3{fill:var(--bg)}
+@media (prefers-reduced-motion:no-preference){
+  .tide .w1{animation:drift 14s ease-in-out infinite alternate}
+  @keyframes drift{from{transform:translateX(0)}to{transform:translateX(-60px)}}
+}
+section{padding:4.5rem 0 1rem}
+h2{font-size:clamp(1.9rem,4.5vw,2.9rem);letter-spacing:-.02em;margin-bottom:.75rem}
+.intro{color:var(--muted);max-width:40rem;margin:0 0 2rem}
+.pressures{display:grid;gap:.75rem}
+details{background:var(--surface);border:1px solid var(--line);border-left:6px solid var(--kelp);border-radius:.4rem;padding:1rem 1.25rem}
+details:nth-child(2){border-left-color:var(--tide)}
+details:nth-child(3){border-left-color:var(--sun)}
+details:nth-child(4){border-left-color:var(--muted)}
+summary{cursor:pointer;font:700 1.35rem "Bricolage Grotesque",sans-serif;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-weight:500;color:var(--muted)}
+details[open] summary::after{content:"−"}
+details p{margin:.75rem 0 0;max-width:46rem}
+details .do{color:var(--muted);font-size:1rem}
+.actions{background:var(--surface);border:1px solid var(--line);border-radius:.5rem;padding:1.25rem 1.5rem}
+.actions ul{list-style:none;margin:0;padding:0}
+.actions li{border-bottom:1px solid var(--line)}
+.actions li:last-child{border-bottom:0}
+.actions label{display:flex;gap:.9rem;align-items:flex-start;padding:.9rem 0;cursor:pointer}
+.actions input{width:1.3rem;height:1.3rem;margin-top:.35rem;accent-color:var(--kelp);flex:none}
+.actions small{display:block;color:var(--muted);font-size:.95rem;line-height:1.5}
+.tally{display:flex;align-items:center;gap:1rem;margin-top:1.25rem;font:700 1.1rem "Bricolage Grotesque",sans-serif}
+.bar{flex:1;height:.7rem;background:var(--line);border-radius:1rem;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--kelp);transition:width .3s}
+#msg{color:var(--muted);font:400 1rem "Source Serif 4",serif;margin:.5rem 0 0;min-height:1.7em}
+.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:1rem;padding:0;list-style:none;margin:0}
+.links a{display:block;height:100%;background:var(--surface);border:1px solid var(--line);border-radius:.4rem;padding:1rem 1.25rem;text-decoration:none;color:var(--ink)}
+.links a:hover{border-color:var(--kelp)}
+.links strong{font:700 1.1rem "Bricolage Grotesque",sans-serif;display:block}
+.links span{color:var(--muted);font-size:.95rem;line-height:1.45;display:block}
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(12.5rem,1fr));gap:1rem;padding:0;list-style:none;margin:0}
+.team li{background:var(--surface);border:1px solid var(--line);border-top:5px solid var(--kelp);border-radius:.4rem;padding:1rem 1.25rem}
+.team li:nth-child(2){border-top-color:var(--tide)}
+.team li:nth-child(3){border-top-color:var(--sun)}
+.team li:nth-child(4){border-top-color:var(--muted)}
+.team strong{display:block;font:700 1.15rem "Bricolage Grotesque",sans-serif;line-height:1.2}
+.team em{display:block;font-style:normal;color:var(--kelp);font-weight:600;margin:.25rem 0 .4rem}
+.team span{display:block;color:var(--muted);font-size:.95rem;line-height:1.5}
+@media (prefers-reduced-motion:no-preference){
+  @keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+  @keyframes drift2{from{transform:translateX(0)}to{transform:translateX(50px)}}
+  .hero h1,.hero .lead,.hero .btn{animation:rise .9s cubic-bezier(.2,.7,.2,1) backwards}
+  .hero .lead{animation-delay:.15s}
+  .hero .btn{animation-delay:.3s}
+  .tide .w2{animation:drift2 18s ease-in-out infinite alternate}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  details[open]>p{animation:rise .45s ease backwards}
+  .links a,.team li,.btn{transition:transform .25s ease,border-color .25s ease,filter .2s}
+  .links a:hover,.team li:hover{transform:translateY(-4px)}
+  .btn:hover{transform:translateY(-2px)}
+}
+.hero .wrap{position:relative;z-index:1}
+.hero h1,.hero .lead{text-shadow:0 1px 14px rgba(0,0,0,.45)}
+.scene{position:absolute;left:0;right:0;bottom:0;width:100%;height:62%;z-index:0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .hero{background:linear-gradient(180deg,#050d1f 0%,#0d3340 62%,#8a6416 100%)}}
+:root[data-theme="dark"] .hero{background:linear-gradient(180deg,#050d1f 0%,#0d3340 62%,#8a6416 100%)}
+html,body{overflow-x:clip}
+.band{width:100vw;margin:3.5rem 0 0 calc(50% - 50vw);line-height:0}
+.band svg{display:block;width:100%;height:auto}
+footer{margin-top:4rem;padding:2rem 0 3rem;border-top:1px solid var(--line);color:var(--muted);font-size:.95rem}
+</style>
+</head>
+<body>
+<div class="hero">
+  <svg class="scene" viewBox="0 0 1200 500" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <defs>
+      <g id="pine"><path d="M0 0L22 55H-22ZM0 28L28 88H-28ZM0 60L34 125H-34Z"/><rect x="-5" y="125" width="10" height="22"/></g>
+      <radialGradient id="glow"><stop offset="0" stop-color="#ffd36b" stop-opacity=".9"/><stop offset="1" stop-color="#ffd36b" stop-opacity="0"/></radialGradient>
+    </defs>
+    <circle cx="930" cy="240" r="150" fill="url(#glow)"/>
+    <circle cx="930" cy="240" r="62" fill="#ffd978"/>
+    <path fill="#1f6f6a" opacity=".9" d="M0 310L170 190L290 270L470 130L650 285L800 200L1000 305L1200 215V500H0Z"/>
+    <path fill="#1b6a5a" d="M0 390C200 315 380 370 580 340S920 300 1200 360V500H0Z"/>
+    <g fill="#0b332c">
+      <use href="#pine" transform="translate(70 335)"/>
+      <use href="#pine" transform="translate(145 365) scale(.8)"/>
+      <use href="#pine" transform="translate(30 385) scale(.7)"/>
+      <use href="#pine" transform="translate(1090 330) scale(1.1)"/>
+      <use href="#pine" transform="translate(1010 365) scale(.85)"/>
+      <use href="#pine" transform="translate(1160 380) scale(.7)"/>
+    </g>
+    <path fill="#124d41" d="M0 440C260 400 520 450 800 425S1100 410 1200 430V500H0Z"/>
+  </svg>
+  <div class="wrap">
+    <header class="top">
+      <a class="brand" href="#top">Keep It Livable</a>
+      <nav aria-label="Main"><a href="#pressures">The pressures</a><a href="#act">Take action</a><a href="#learn">Learn more</a><a href="#team">Our team</a></nav>
+    </header>
+    <h1 id="top">Protect the places that keep us alive.</h1>
+    <p class="lead">Clean air, fresh water, healthy soil and stable weather are not extras. Environmental protection is the work of keeping them intact, and most of that work is done by ordinary people making steady choices.</p>
+    <a class="btn" href="#act">Pick your first action</a>
+    <svg class="tide" viewBox="0 0 1200 140" preserveAspectRatio="none" aria-hidden="true">
+      <path class="w1" d="M-80 70 C 100 20, 250 120, 450 70 S 800 20, 1000 70 S 1200 100, 1300 60 V140 H-80Z"/>
+      <path class="w2" d="M0 95 C 200 50, 350 130, 600 90 S 950 60, 1200 100 V140 H0Z"/>
+      <path class="w3" d="M0 120 C 250 95, 500 140, 800 115 S 1100 105, 1200 120 V140 H0Z"/>
+    </svg>
+  </div>
+</div>
+
+<main class="wrap">
+  <section id="pressures">
+    <h2>Four pressures worth understanding</h2>
+    <p class="intro">Open each one for what is happening and what helps.</p>
+    <div class="pressures">
+      <details>
+        <summary>A warming climate</summary>
+        <p>Burning coal, oil and gas adds carbon dioxide faster than forests and oceans can absorb it. The Paris Agreement set a goal of holding warming well below 2°C and pursuing 1.5°C, because each fraction of a degree brings more heat waves, floods and crop stress.</p>
+        <p class="do">What helps: cleaner electricity, efficient buildings, public transport, and protecting forests and peatlands that store carbon.</p>
+      </details>
+      <details>
+        <summary>Disappearing species and habitat</summary>
+        <p>A 2019 global assessment by the UN’s biodiversity panel estimated that around one million animal and plant species face extinction, many within decades. The main drivers are changes to land and sea use, overexploitation, climate change, pollution and invasive species.</p>
+        <p class="do">What helps: protected areas that connect, restoring wetlands and woodland, sustainable farming and fishing, and buying certified wood and seafood.</p>
+      </details>
+      <details>
+        <summary>Pressure on fresh water</summary>
+        <p>Rivers, lakes and aquifers supply drinking water and irrigate crops, and they are also where untreated waste, fertilizer runoff and industrial pollution end up. Healthy wetlands filter water and soften floods, so losing them costs communities twice.</p>
+        <p class="do">What helps: safe sanitation, protecting wetlands and river banks, fixing leaks, and keeping chemicals and oils out of drains.</p>
+      </details>
+      <details>
+        <summary>Waste and plastic pollution</summary>
+        <p>Research published in 2015 estimated millions of tonnes of plastic enter the ocean every year. The UN food agency estimates that roughly a third of food produced is lost or wasted, which also wastes the water, land and energy used to grow it.</p>
+        <p class="do">What helps: reducing single-use items, repairing and reusing, composting food scraps, and recycling what is left.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="act">
+    <h2>Start with what you can do this week</h2>
+    <p class="intro">Tick the actions you already do or will commit to. Your list stays in this tab only.</p>
+    <div class="actions">
+      <ul id="list">
+        <li><label><input type="checkbox"><span>Carry a reusable bottle and bag<small>Cuts single-use plastic you would otherwise bin within hours.</small></span></label></li>
+        <li><label><input type="checkbox"><span>Plan meals to use up what you have<small>Food waste is a large, easily avoided source of emissions.</small></span></label></li>
+        <li><label><input type="checkbox"><span>Walk, cycle or share a ride for one regular trip<small>Transport is a major source of urban air pollution.</small></span></label></li>
+        <li><label><input type="checkbox"><span>Switch off and unplug what you are not using<small>Lower bills and less demand on the grid.</small></span></label></li>
+        <li><label><input type="checkbox"><span>Plant a native tree or shrub, or join a local clean-up<small>Shade, habitat for insects and birds, and a community that notices its surroundings.</small></span></label></li>
+        <li><label><input type="checkbox"><span>Repair or pass on one item before replacing it<small>The greenest product is usually the one already made.</small></span></label></li>
+      </ul>
+      <div class="tally"><span id="count">0 of 6</span><div class="bar" aria-hidden="true"><i id="fill"></i></div></div>
+      <p id="msg" aria-live="polite">Choose any action to begin.</p>
+    </div>
+  </section>
+
+  <div class="band" aria-hidden="true">
+    <svg viewBox="0 0 1200 200">
+      <path fill="#9be0b0" opacity=".7" d="M0 120C150 60 330 150 520 100S900 60 1200 110V200H0Z"/>
+      <path fill="#3fae83" d="M0 150C200 110 400 170 640 135S1000 110 1200 145V200H0Z"/>
+      <g fill="#17604f">
+        <use href="#pine" transform="translate(150 55) scale(.7)"/>
+        <use href="#pine" transform="translate(215 70) scale(.55)"/>
+        <use href="#pine" transform="translate(960 50) scale(.75)"/>
+        <use href="#pine" transform="translate(1030 68) scale(.55)"/>
+      </g>
+      <path fill="#1d6b57" d="M0 180C250 150 520 195 800 170S1100 160 1200 178V200H0Z"/>
+      <circle cx="260" cy="168" r="5" fill="#f26b8a"/><circle cx="310" cy="176" r="4" fill="#ffd166"/><circle cx="380" cy="170" r="5" fill="#ffffff"/>
+      <circle cx="470" cy="182" r="5" fill="#ff9f5a"/><circle cx="560" cy="176" r="4" fill="#f26b8a"/><circle cx="640" cy="170" r="5" fill="#ffd166"/>
+      <circle cx="730" cy="178" r="4" fill="#ffffff"/><circle cx="820" cy="168" r="5" fill="#ff9f5a"/><circle cx="890" cy="160" r="4" fill="#f26b8a"/>
+    </svg>
+  </div>
+
+  <section id="learn">
+    <h2>Go deeper</h2>
+    <p class="intro">Trusted sources for data, science and ways to get involved.</p>
+    <ul class="links">
+      <li><a href="https://www.unep.org" rel="noopener"><strong>UN Environment Programme</strong><span>Global reports on air, water, chemicals and nature.</span></a></li>
+      <li><a href="https://www.ipcc.ch" rel="noopener"><strong>IPCC</strong><span>The scientific assessments behind climate policy.</span></a></li>
+      <li><a href="https://www.iucn.org" rel="noopener"><strong>IUCN</strong><span>The Red List of threatened species and conservation guidance.</span></a></li>
+      <li><a href="https://www.fao.org" rel="noopener"><strong>FAO</strong><span>Food, forests and fisheries data, including food waste.</span></a></li>
+    </ul>
+  </section>
+  <section id="team">
+    <h2>Meet the team</h2>
+    <p class="intro">Six of us built this site together, each owning one part of the work.</p>
+    <ul class="team">
+      <li><strong>Ssaazi Timothy</strong><em>Project lead and publisher</em><span>Keeps the plan on track, puts the final site together and publishes it.</span></li>
+      <li><strong>Walusimbi Victor</strong><em>Group head</em><span>Heads the group and keeps the work moving.</span></li>
+      <li><strong>Jukko Jerremiah</strong><em>Mobiliser</em><span>Rallies people to take part and spreads the word about the project.</span></li>
+      <li><strong>Abowe Dean King</strong><em>Front-end developer</em><span>Wrote the code and built the interactive parts.</span></li>
+      <li><strong>Mutesasira Victor</strong><em>Actions, links and quality</em><span>Wrote the action list, gathered the links, and tested and proofread the site.</span></li>
+      <li><strong>Nsubuga Alpha</strong><em>Content researcher</em><span>Researched and wrote the four pressures, and checked the facts.</span></li>
+    </ul>
+  </section>
+</main>
+
+<footer><div class="wrap">Figures are summarized from the sources above; check them for current numbers.</div></footer>
+
+<script>
+(function(){
+  var boxes=document.querySelectorAll('#list input'),n=boxes.length;
+  var count=document.getElementById('count'),fill=document.getElementById('fill'),msg=document.getElementById('msg');
+  var notes=['Choose any action to begin.','Good start. Small habits add up.','Two down. Keep going.','Halfway there.','Most of the list is yours.','One more to finish.','All six. Share the list with a friend or neighbor.'];
+  function update(){
+    var c=0;boxes.forEach(function(b){if(b.checked)c++});
+    count.textContent=c+' of '+n;fill.style.width=(c/n*100)+'%';msg.textContent=notes[c];
+  }
+  boxes.forEach(function(b){b.addEventListener('change',update)});
+  try{
+    if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+      document.querySelectorAll('main h2,main .intro,.pressures,.actions,.links,.team').forEach(function(el){el.classList.add('reveal');io.observe(el)});
+    }
+  }catch(err){}
+})();
+</script>
+</body>
+</html>
